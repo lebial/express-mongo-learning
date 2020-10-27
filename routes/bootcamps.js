@@ -1,5 +1,11 @@
 const express = require('express');
+
+// Include other resource router
+const courseRouter = require('./courses');
 const router = express.Router();
+
+// Re-route into other resource routers
+router.use('/:bootcampId/courses', courseRouter);
 
 const {
     getBootcamps,
